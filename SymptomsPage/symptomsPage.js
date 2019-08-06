@@ -5,6 +5,6 @@ $(".add").on("click", function() {
     console.log(symptom);
     listSymp.push(symptom); 
     console.log(listSymp);
-    var newsymp = $("<button type='button' class='btn addSymp' style='background-color:#F8FDFF; margin: 0px 5px'>" + symptom + "</button></li>");
-    $(".AddedSymptoms").append(newsymp);    
+    var newsymp = $("<button type='button' class='btn addSymp' style='background-color:#F8FDFF; margin: 5px'>" + symptom + "</button></li>");
+    $(".listSymptoms").append(newsymp);    
 });
