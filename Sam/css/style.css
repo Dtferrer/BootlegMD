@@ -1,0 +1,11 @@
+h1 {
+    text-align: center;
+    margin: 20px;
+}
+form {
+    margin: 15px;
+    background-color: #e3f2fd;
+}
+#startingDestination, #finalDestination {
+    font-weight: bold;
+}
