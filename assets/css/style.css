@@ -1,0 +1,33 @@
+/* footer */
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    padding-bottom: 30px; 
+    margin-bottom: 50px; /* Margin bottom by footer height */
+  }
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 65px; /* Set the fixed height of the footer here */
+    line-height: 50px; /* Vertically center the text there */
+    background-color: #4F5051;
+  }
+  
+  .two-toned-footer-color {
+    /* Box-model */
+    height: 6px;
+    padding-top: 3px;
+  
+    /* Visual */
+    background-color: #236CA0;
+  }
+
+.copyright {
+    color: white;
+    padding: 10px;
+    margin-bottom: -50px;
+    height: 65px;
+}
