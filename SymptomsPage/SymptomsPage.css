@@ -1,0 +1,16 @@
+form {
+    background-color: #e3f2fd;
+    padding-top: 10px;
+}
+
+.wrapper {
+    margin: auto;
+    margin-top: 5%;
+    position: relative;
+    width: 80%;
+    height: 80%;
+}
+
+.form-row {
+    margin: 5px 0px;
+}
