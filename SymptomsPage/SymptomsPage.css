@@ -1,3 +1,6 @@
+button {
+  background-color: #4F5051
+}
 form {
     background-color: #e3f2fd;
     padding-top: 10px;
@@ -10,6 +13,7 @@ form {
     width: 80%;
     height: 80%;
 }
+
 
 .form-row {
     margin: 5px 0px;
@@ -30,7 +34,7 @@ html {
     width: 100%;
     height: 65px; /* Set the fixed height of the footer here */
     line-height: 50px; /* Vertically center the text there */
-    background-color: #666;
+    background-color: #4F5051;
   }
   
   .two-toned-footer-color {
@@ -39,7 +43,7 @@ html {
     padding-top: 3px;
   
     /* Visual */
-    background-color: #e3f2fd;
+    background-color: #236CA0;
   }
 
 .copyright {
