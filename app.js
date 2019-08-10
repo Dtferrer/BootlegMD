@@ -2,26 +2,47 @@
 
 var api_key = '2a74722c2c353c8693b5411d853ff890'; // Get your API key at developer.betterdoctor.com
 
-var queryURL = 'https://api.betterdoctor.com/2016-03-01/doctors?location=32.7157,-117.1611,25&skip=2&limit=10&user_key=' + api_key;
+// RUN ON PAGE LOAD
+$(document).ready(function() {
+    requestSpecialties();
+})
+
+// CLICK HANDLER
+$('#run-search').on('click', function() {
+    console.log('Running Search...');
+    var specialty = $('#specialty-list').val();
+    console.log('Search for Specailty: ', specialty);
+    // Run Search
+    requestSpecialtyDoctors(specialty);
+})
 
 
-
-//$.get(resource_url, function (data) {
-    // data: { meta: {<metadata>}, data: {<array[Practice]>} }
-//     var template = Handlebars.compile(document.getElementById('docs-template').innerHTML);
-//     document.getElementById('content-placeholder').innerHTML = template(data);
-// });
 
 // request a list of specialties
+function requestSpecialties() {
     var listURL = "https://api.betterdoctor.com/2016-03-01/specialties?user_key=2a74722c2c353c8693b5411d853ff890"
 
 
+    $.ajax ({
+        url: listURL,
+        method: "GET"
+    }).then(createSpecialtySelect);
+}
+
+function requestSpecialtyDoctors(specialty_uid) {
+    var url = "https://api.betterdoctor.com/2016-03-01/doctors?location=32.7157,-117.1611,25&skip=2&limit=10&specialty_uid=" + specialty_uid + "&user_key=" + api_key;
 
 
-$.ajax ({
-     url: listURL,
-     method: "GET"
-}).then(function(response) {
+    $.ajax ({
+        url,
+        method: "GET"
+    }).then(function(res) {
+        res.data.forEach(createSpecialistCard)
+    });
+}
+
+
+function createSpecialtySelect(response) {
     var select = $('<select>')
                     .attr('id', 'specialty-list')
                     .attr('name', 'specialty-list');
@@ -37,11 +58,48 @@ $.ajax ({
         select.append(option);
     });
     $('#select-specialty').append(select);
-});
-        
+}
 
-//     for (var i = 0; i < response.length; i++) {
-//         console.log(response.data)
-//         $(".specialty-list").append("<option value='" + response.data[i].name + "' id='" + response.data[i].uid + "'>" + response.data[i].name + "</option>")
-// }
-// });
+        
+function createSpecialistCard(doctor) {
+    // console.log('doctor', doctor);
+    console.log('Practices', doctor.practices[0].visit_address.street);
+    console.log('Practices', doctor.practices[0].visit_address.city);
+    console.log('Practices', doctor.practices[0].visit_address.state);
+    var specialties = doctor.specialties.reduce(function(output, specialty) {
+        output += specialty.name + ', ';
+        return output.trim();
+    }, '');
+    var doctorImage = $('<img>')
+                            .addClass('card-img-top')
+                            .attr('alt', `${doctor.profile.title} ${doctor.profile.first_name} ${doctor.profile.last_name}`)
+                            //.attr('src', doctors.urlToImage);
+    var doctorName = $('<h5>')
+                            .addClass('card-title')
+                            .html(`${doctor.profile.title} ${doctor.profile.first_name} ${doctor.profile.last_name}`);
+                            
+    var doctorSpecialties = $('<p>')
+                                .addClass('card-text')
+                                .html(specialties);
+    var street = doctor.practices[0].visit_address.street
+    var city = doctor.practices[0].visit_address.city;
+    var state = doctor.practices[0].visit_address.state;
+    var website = doctor.practices[0].website;
+    var doctorAddress = $('<p>')
+                                .addClass('card-text')
+                                .html(`${street}<br/>${city}, ${state}`);
+    // var doctorHomepage = $('<p>')
+    //                             .addClass('card-text')
+    //                             .html(website)
+    //                             .attr('src', website.url);
+    
+    var cardBody = $('<div>')
+        .addClass('card-body')
+        .append(doctorName)
+        .append(doctorSpecialties)
+        .append(doctorAddress)
+        // .append(doctorHomepage);
+    var card = $('<div>').addClass('card').append(doctorImage).append(cardBody);
+    $('#doctor-list').append(card);
+}
+
