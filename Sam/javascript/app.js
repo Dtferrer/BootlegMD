@@ -27,12 +27,12 @@ function displayStep(move, moveNumber) {
     console.log('move', move);
     moveNumber++;
     var stepNumber = $('<p>').addClass('step').html("Step " + moveNumber + ": ");
-    var street = $('<p>').addClass('street').html(move.streets + ' ').css("color", "red");
-    // var distance = $('<span>').addClass('distance').html(move.distance);
+    // var street = $('<p>').addClass('street').html(move.streets + ' ').css("color", "red");
+    var distance = $('<span>').addClass('distance').html(move.distance);
     var narrative = $('<p>').addClass('narrative').html(move.narrative);
 
-    var moveRow = $('<div>').addClass('row').append("Step " + moveNumber + ": " + "(" + move.streets + ") " + move.narrative);
-
+    // var moveRow = $('<div>').addClass('row').append("Step " + moveNumber + ": " + move.narrative + " " + move.distance + " miles.");
+    var moveRow = $(`<div class='row'>Step ${moveNumber}: ${move.narrative} <span style=color:red;> ${move.distance} miles</span></div>`)
     // var moveRow = $('<div>')
     //     .addClass('row')
     //     .append(stepNumber)
