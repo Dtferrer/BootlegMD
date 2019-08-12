@@ -15,7 +15,7 @@ function populatePage(data) {
     createJumbotron(data.articles[data.articles.length - 1]);
     // Create Article List
     data.articles.forEach(createArticleCard);
-}
+} 
 function createJumbotron(article) {
     var jumbotron = $('<div>').addClass('jumbotron').addClass('jumbo')
     var image = $('<img>')
@@ -30,7 +30,7 @@ function createJumbotron(article) {
             $('<h2>')
                 .html(article.title)
         )
-    $(jumbotron).append(newsArticle)
+    $('jumbotron').append(newsArticle)
 
 }
 
