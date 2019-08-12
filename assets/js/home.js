@@ -26,11 +26,15 @@ function createJumbotron(article) {
 
     $('#jumbo').append(jumbotron);
 
-    var newsArticle = $('<div>')
+    var newsArticle = $('<div>').addClass('jumbo-text')
         .append(
-            $('<h2>')
-                .html(article.title)
+        $('<h2>')
+            .html(article.title)
         )   
+        .append(
+            $('<h4>')
+                .html(article.description)
+        )
         .append(
             $('<a>')
                 .addClass('btn btn-primary')
