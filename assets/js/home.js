@@ -25,12 +25,20 @@ function createJumbotron(article) {
         .appendTo(jumbotron);
 
     $('#jumbo').append(jumbotron);
+
     var newsArticle = $('<div>')
         .append(
             $('<h2>')
                 .html(article.title)
-        )
-    $('jumbotron').append(newsArticle)
+        )   
+        .append(
+            $('<a>')
+                .addClass('btn btn-primary')
+                .attr('href', article.url)
+                .html('View Article')
+        );
+    $('.jumbotron').append(newsArticle)
+    // console.log(article.title)
 
 }
 

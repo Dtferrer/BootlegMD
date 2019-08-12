@@ -6,12 +6,15 @@
 .card {
     width: 350px;
     margin: 5px;
+    margin: top, 20px
 }
 
 .jumbo {
     max-height: 500px;
+    margin: bottom, 10px;
 }
-
 .jumbo-img {
     max-height: 400px;
 }
+
+
