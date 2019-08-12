@@ -1,0 +1,17 @@
+#article-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 350px;
+    margin: 5px;
+}
+
+.jumbo {
+    max-height: 500px;
+}
+
+.jumbo-img {
+    max-height: 400px;
+}
