@@ -45,7 +45,7 @@ function displayStep(move, moveNumber) {
 
 function empty(){
     $("#exampleInputlocation1").val("");
-    $("#exampleInputlocation2").val("");
+    $("#exampleInputlocation2").val(""); 
 }
 
 
