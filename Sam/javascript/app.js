@@ -8,7 +8,7 @@ $("#submit").on("click", function(){
 });
 
 function getDirections(startLocation, endLocation) {
-    var queryUrl = 'http://open.mapquestapi.com/directions/v2/route?key=A6vc2e1WIOf1eHAai2WljNdGvoRQAqi1&from=' + startLocation + '&to=' + endLocation + '';
+    var queryUrl = 'https://open.mapquestapi.com/directions/v2/route?key=A6vc2e1WIOf1eHAai2WljNdGvoRQAqi1&from=' + startLocation + '&to=' + endLocation + '';
         
     $.ajax({
             url: queryUrl,
