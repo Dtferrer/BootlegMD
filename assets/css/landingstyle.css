@@ -6,7 +6,6 @@
 .card {
     width: 350px;
     margin: 5px;
-    margin: top, 20px
 }
 
 .jumbo {
@@ -17,6 +16,11 @@
     max-height: 400px;
 }
 .jumbo-text{
-    float: right;
+    float: right, top;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    float: left;
 }
 
