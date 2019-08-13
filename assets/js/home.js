@@ -25,12 +25,24 @@ function createJumbotron(article) {
         .appendTo(jumbotron);
 
     $('#jumbo').append(jumbotron);
-    var newsArticle = $('<div>')
+
+    var newsArticle = $('<div>').addClass('jumbo-text')
         .append(
-            $('<h2>')
-                .html(article.title)
+        $('<h2>')
+            .html(article.title)
+        )   
+        .append(
+            $('<h4>')
+                .html(article.description)
         )
-    $('jumbotron').append(newsArticle)
+        .append(
+            $('<a>')
+                .addClass('btn btn-primary')
+                .attr('href', article.url)
+                .html('View Article')
+        );
+    $('.jumbotron').append(newsArticle)
+    // console.log(article.title)
 
 }
 
