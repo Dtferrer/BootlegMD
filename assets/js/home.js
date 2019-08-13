@@ -12,7 +12,7 @@ function requestHealthArticles() {
 
 function populatePage(data) {
     // Create Jumbotron
-    createJumbotron(data.articles[data.articles.length - 1]);
+    createJumbotron(data.articles[data.articles.length - 3]);
     // Create Article List
     data.articles.forEach(createArticleCard);
 } 
