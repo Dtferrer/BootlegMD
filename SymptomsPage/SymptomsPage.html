@@ -10,10 +10,22 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="SymptomsPage.css">
 </head>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bootleg MD: Symptoms Search</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="SymptomsPage.css">
+</head>
 
 <body>
     <!-- navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #236CA0;">
         <div class="container">
             <a class="navbar-brand" href="../index.html">
                 <h3 id="logo">BootlegMD</h3>
@@ -29,10 +41,10 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="portfolio.html">Doctor Search</a>
+                    <a class="nav-link" href="../doctors/index.html">Doctor Search</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Calendar</a>
+                    <a class="nav-link" href="../Sam/calendar.html">Calendar</a>
                   </li>
                 </ul>
             </div>
@@ -42,26 +54,34 @@
     <!-- Form -->
     <div class="container">
         <div class="wrapper">
+            <div class="form-row justify-content-md-center">
+                    <h3>Symptoms Checker</h3>
+            </div>
             <form>
                 <div class="form-row justify-content-md-center">
                     <div class="form-group col-sm-1">
                         <label for="inputAge4">Age</label>
-                        <input type="text" class="form-control" id="inputAge" placeholder="25">
+                        <input type="text" class="form-control" id="inputAge">
                     </div>
-                    <div class="form-group col-sm-1">
+                    <div class="form-group col-sm-1.5">
                         <label for="inputSex">Sex</label>
                         <select id="inputSex" class="form-control">
                             <option selected></option>
-                            <option>Male</option>
-                            <option>Female</option>
+                            <option>male</option>
+                            <option>female</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-row justify-content-md-center">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-sm-6">
                         <label for="inputSymptom">Add Your Symptoms Here</label>
-                        <input type="text" class="form-control" id="inputSymptom" placeholder="Ex: Headache">
+                        <select data-placeholder="Ex: Headache" class="form-control chosen-select inputSymptom justify-content-md-center" style="width: 90%">
+                            <option value=""></option>
+                        </select>
                     </div>
+                </div>
+                <div class="form-row justify-content-md-center">
+                    <button type="button" class="add btn btn-dark" style="background-color: #4F5051">Add Symptom</button>
                 </div>
                 <div class="form-row justify-content-md-center">
                     <div class="form-group col-md-6">
@@ -70,6 +90,11 @@
                     </div>
                 </div>
                 <div class="form-row justify-content-md-center">
+                    <div class="form-group col-sm-1 buttondiv">
+                            <button class="btn btn-dark submit" type="button" style="background-color: #4F5051">Submit</button>
+                    </div>
+                </div>
+                <div class="form-row justify-content-md-center list">
                     <div class="form-group col-md-6">
                         <div class="listDiagnoses"></div>
                     </div>
@@ -77,8 +102,18 @@
             </form>
         </div>
     </div>
+
+    <footer class="footer">
+        <div class="two-toned-footer-color"></div>
+        <p class="copyright text-muted-footer text-center">
+          &copy; Copyright
+        </p>
+    </footer>
     
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="SymptomsPage.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="symptomsPage.js"></script>
 </body>
 </html>
